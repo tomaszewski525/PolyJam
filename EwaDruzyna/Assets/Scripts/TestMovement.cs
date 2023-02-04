@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class TestMovement : MonoBehaviour
 {
+    // Animal Data
+    bool canJump = true;
+    bool canMove = true;
     public float speed = 10.0f;
     public float jumpForce = 500.0f;
+    public float gravityDownGravity = 3000;
+    public float gravityNormalForce = 1000.0f;
+    animalType animal = animalType.Ladybird;
 
-
-    private Rigidbody2D rigidBody2D;
-    bool isGrounded = true;
-    bool canJump = true;
-
-    public float downGravity = 20;
-    public float gravityForce = 10.0f;
+    // Temp variables
+    float gravityForce = 1000.0f;
     int gravityDir = 0;
-    
+    Vector2 gravity = Vector2.zero;
+    bool isGrounded = true;
+    private Rigidbody2D rigidBody2D;
     public enum animalType
     {
         Spider, Ladybird, Crawler
     }
-
     public enum specialAbilityType
     {
-        ShootLine
+        ShootLine, Gliding
     }
 
-    animalType animal = animalType.Ladybird;
+    // hold space variables
+    bool isHoldingSpace = false;
+    bool wasHoldingSpace = false;
+    float spaceHoldTime = 0.003f;
+    float totalSpaceHoldTime = 0.0f;
+    
+
     
 
     private void Start()
@@ -39,6 +47,63 @@ public class TestMovement : MonoBehaviour
     {
 
         ChooseGravityDirection(gravityDir);
+        ChangeGravityForce();
+
+        CheckIfSpaceIsHeld();
+
+        if (canMove)
+        {
+            Move();
+        }
+
+        if(canJump)
+        {
+            Jump();
+        }
+
+        /*
+        // Change Gravity when falling
+        if (rigidBody2D.velocity.y < -0.1)ad
+        {
+            rigidBody2D.gravityScale = downGravity;
+        }
+        else
+        {
+            rigidBody2D.gravityScale = 10;
+        }*/
+    }
+
+    public void CheckIfSpaceIsHeld()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (wasHoldingSpace)
+            {
+                totalSpaceHoldTime += Time.deltaTime;
+            }
+            else
+            {
+                wasHoldingSpace = true;
+                totalSpaceHoldTime += Time.deltaTime;
+            }
+        }
+        else
+        {
+            wasHoldingSpace = false;
+            totalSpaceHoldTime = 0;
+        }
+
+        if (totalSpaceHoldTime > spaceHoldTime)
+        {
+            isHoldingSpace = true;
+        }
+        else
+        {
+            isHoldingSpace = false;
+        }
+    }
+    public void Move()
+    {
         // Horizontal move
         if (gravity.x == 0)
         {
@@ -51,23 +116,81 @@ public class TestMovement : MonoBehaviour
             rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, verticalInput * speed);
         }
 
+    }
+
+    public void Jump()
+    {
         // Can jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && canJump)
         {
             print(jumpForce * gravity);
-            rigidBody2D.AddForce(jumpForce* gravity*(-1));
+            rigidBody2D.AddForce(jumpForce * gravity * (-1));
         }
-        
-        /*
-        // Change Gravity when falling
-        if (rigidBody2D.velocity.y < -0.1)ad
+
+    }
+
+    public void ChangeGravityForce()
+    {
+        float tempDownGravity = 0;
+
+        if(isHoldingSpace && animal == animalType.Ladybird)
         {
-            rigidBody2D.gravityScale = downGravity;
+            tempDownGravity = gravityNormalForce / 4;
         }
         else
         {
-            rigidBody2D.gravityScale = 10;
-        }*/
+            tempDownGravity = gravityDownGravity;
+        }
+
+        if (gravityDir == 0)
+        {
+            if(rigidBody2D.velocity.y < -0.1)
+            {
+                gravityForce = tempDownGravity;
+            }
+            else
+            {
+                gravityForce = gravityNormalForce;
+            }
+        }
+        if (gravityDir == 1)
+        {
+            if (rigidBody2D.velocity.y > 0.1)
+            {
+                gravityForce = tempDownGravity;
+            }
+            else
+            {
+                gravityForce = gravityNormalForce;
+            }
+        }
+
+        if (gravityDir == 3)
+        {
+            if (rigidBody2D.velocity.x < -0.1)
+            {
+                gravityForce = tempDownGravity;
+            }
+            else
+            {
+                gravityForce = gravityNormalForce;
+            }
+        }
+
+        if (gravityDir == 2)
+        {
+            if (rigidBody2D.velocity.x > 0.1)
+            {
+                gravityForce = tempDownGravity;
+            }
+            else
+            {
+                gravityForce = gravityNormalForce;
+            }
+        }
+
+
+
     }
 
     public void collisionEnterHandler(Vector2 stopVelocity, int gravityDirection)
@@ -107,8 +230,6 @@ public class TestMovement : MonoBehaviour
         }
 
     }
-
-    Vector2 gravity = Vector2.zero;
     public void ChooseGravityDirection(int direction)
     {
         if (direction == 0)

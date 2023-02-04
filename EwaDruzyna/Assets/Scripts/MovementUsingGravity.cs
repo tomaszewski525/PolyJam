@@ -6,7 +6,8 @@ public class MovementUsingGravity : MonoBehaviour
 {
     public float speed = 10.0f;
     public float jumpForce = 500.0f;
-    public float downGravity = 20;
+    public float downGravity = 2000;
+
     private Rigidbody2D rigidBody2D;
     bool isGrounded = true;
     bool canJump = true;
