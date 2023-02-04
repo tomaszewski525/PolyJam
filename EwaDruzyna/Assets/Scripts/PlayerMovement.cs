@@ -5,14 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Collider2D collision;
     public float maxVelocity = 5.0f;
     public float maxJumpSpeed = 50.0f;
     public float moveForce = 2;
     public float jumpForce = 50;
+    private float frameTime;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        collision = GetComponent<Collider2D>();
         jumpForce = 30;
         moveForce = 2;
         maxJumpSpeed = 30;
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        frameTime = Time.deltaTime;
         Move(GetInput());
     }
 
@@ -46,26 +50,31 @@ public class PlayerMovement : MonoBehaviour
         }
         return dir;
     }
-
+    private bool isGrounded = true;
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
     void Move(Vector2 movedirection)
     {
+        
         // Move player on ground
-        if(Mathf.Abs(rb.velocity.x) < maxVelocity)
-        {
+       if(Mathf.Abs(rb.velocity.x) < maxVelocity)
+       {
             Vector2 flatMove = new Vector2(movedirection.x, 0.0f);
             Vector3 flatMoveVec3 = Vector3.ClampMagnitude(flatMove.normalized* moveForce, maxVelocity);
-
-            
-            Vector2 jumpMove = new Vector2(0.0f, movedirection.y);
-            Vector3 jumpMoveVec3 = Vector3.ClampMagnitude(jumpMove.normalized* jumpForce, maxJumpSpeed);
-
-
-            // print(jumpMoveVec3 + flatMoveVec3);
-            print(jumpMoveVec3+flatMoveVec3); 
-            rb.AddForce(jumpMoveVec3 + flatMoveVec3);
-
-   
-        }
+            rb.AddForce(flatMoveVec3);
+       }
 
 
 

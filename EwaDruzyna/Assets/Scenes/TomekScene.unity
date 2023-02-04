@@ -553,6 +553,8 @@ GameObject:
   - component: {fileID: 729160146}
   - component: {fileID: 729160145}
   - component: {fileID: 729160149}
+  - component: {fileID: 729160150}
+  - component: {fileID: 729160151}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -567,13 +569,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729160144}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09462adb348a0e14fb8dd7c168edb1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1
-  moveForce: 2
+  maxVelocity: 10
+  maxJumpSpeed: 5
+  moveForce: 10
+  jumpForce: 5
 --- !u!50 &729160146
 Rigidbody2D:
   serializedVersion: 4
@@ -688,6 +692,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &729160150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729160144}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df208a077720ff64da82264d6339b371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  buttonTime: 0.3
+  jumpAmount: 5
+--- !u!114 &729160151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729160144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb5d54eca743b4fba1f5bb17f0d217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpForce: 500
 --- !u!1 &1147780377
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +734,7 @@ GameObject:
   - component: {fileID: 1147780378}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
