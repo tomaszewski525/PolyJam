@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 171c52f5ce2b849428ef3c0fd2223588
+guid: 70d64b23af0653f428f22a3fbe8c61f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dronka_animation_0
+      name: dronka_animation 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 789a9922ed0d29c40957f606b35c6f16
-      internalID: -1372083162
+      spriteID: da7f5464936f4164483101462ebdef0a
+      internalID: 885268038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_1
+      name: dronka_animation 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99e81d7cc28af6549be2b408e966a102
-      internalID: 1081138402
+      spriteID: 6eac9f52b1f9f104c82c0e25725afc20
+      internalID: -553503554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_2
+      name: dronka_animation 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa3a80c5597e4f74cbb8e9990388d4bc
-      internalID: 1534878779
+      spriteID: d4bea7c15f74a2a489d253906da82243
+      internalID: 887603250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_3
+      name: dronka_animation 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98436002fa431db4883862f10f465539
-      internalID: -502705374
+      spriteID: cbf2334e3aafaf5409e704f2e94ebc03
+      internalID: -2099711799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_4
+      name: dronka_animation 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3a96e790d1c33e4a8554c221d82dd53
-      internalID: 1369444287
+      spriteID: 1c665e6de999e10468d31de71b4646ed
+      internalID: 1847550156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_5
+      name: dronka_animation 1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a3c38e95e93a04d8026c8ea5d57f37
-      internalID: 1265325892
+      spriteID: 926babd3d3a66ba419dfe43d5d537412
+      internalID: -1397725936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_6
+      name: dronka_animation 1_6
       rect:
         serializedVersion: 2
         x: 32
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d701e2f79fab1478960e59dc5dddc3
-      internalID: -2125381514
+      spriteID: 12df0bf821379a54984fa9e75b198881
+      internalID: -1540134841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_7
+      name: dronka_animation 1_7
       rect:
         serializedVersion: 2
         x: 64
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9c5a4480dc017143a92aba4685a285a
-      internalID: -669047835
+      spriteID: 127a8d97ca767a149b61c052acd4891e
+      internalID: 1565707246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_8
+      name: dronka_animation 1_8
       rect:
         serializedVersion: 2
         x: 96
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45d2df23094d82148b34c1072e6153ac
-      internalID: -368611666
+      spriteID: 23bdea67bd3094f44b48663f17a26993
+      internalID: -1011238428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_9
+      name: dronka_animation 1_9
       rect:
         serializedVersion: 2
         x: 128
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3feacc74be098bd4a9159ef6f0adccf1
-      internalID: -1033181039
+      spriteID: af1ab290cbdbd84468f5bfe6ff6a1fed
+      internalID: -1799188081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_10
+      name: dronka_animation 1_10
       rect:
         serializedVersion: 2
         x: 0
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86d66ed92c6d82944923bc567df4d34c
-      internalID: 305264457
+      spriteID: 08d4ea19bc2333343870138fc6623e7d
+      internalID: -2011973584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_11
+      name: dronka_animation 1_11
       rect:
         serializedVersion: 2
         x: 32
@@ -362,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb3e4e0dc7c938746bdf350858121409
-      internalID: 736733649
+      spriteID: 3b5cf57e6a425064e8830f7820178ba6
+      internalID: -268055979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_12
+      name: dronka_animation 1_12
       rect:
         serializedVersion: 2
         x: 64
@@ -383,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e656ff81b5102643afe5143d4ede799
-      internalID: 599330455
+      spriteID: 4a3723be7768f324991f59789afcf8db
+      internalID: 383290351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_13
+      name: dronka_animation 1_13
       rect:
         serializedVersion: 2
         x: 96
@@ -404,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad2b5f7a6879a5a45b773f2558c60b66
-      internalID: 159571576
+      spriteID: 859fcd0df0c26e643a690e25fc3354fa
+      internalID: 378914503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dronka_animation_14
+      name: dronka_animation 1_14
       rect:
         serializedVersion: 2
         x: 128
@@ -425,8 +425,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63b0da068d1433642a5883827692d8dd
-      internalID: -2061397893
+      spriteID: 1a29fb7745b77304d8b935f9efd22a45
+      internalID: 1016470646
       vertices: []
       indices: 
       edges: []
@@ -442,21 +442,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dronka_animation_3: -502705374
-      dronka_animation_9: -1033181039
-      dronka_animation_0: -1372083162
-      dronka_animation_10: 305264457
-      dronka_animation_11: 736733649
-      dronka_animation_4: 1369444287
-      dronka_animation_7: -669047835
-      dronka_animation_14: -2061397893
-      dronka_animation_5: 1265325892
-      dronka_animation_12: 599330455
-      dronka_animation_1: 1081138402
-      dronka_animation_6: -2125381514
-      dronka_animation_8: -368611666
-      dronka_animation_13: 159571576
-      dronka_animation_2: 1534878779
+      dronka_animation 1_11: -268055979
+      dronka_animation 1_8: -1011238428
+      dronka_animation 1_4: 1847550156
+      dronka_animation 1_3: -2099711799
+      dronka_animation 1_1: -553503554
+      dronka_animation 1_5: -1397725936
+      dronka_animation 1_13: 378914503
+      dronka_animation 1_2: 887603250
+      dronka_animation 1_7: 1565707246
+      dronka_animation 1_12: 383290351
+      dronka_animation 1_10: -2011973584
+      dronka_animation 1_0: 885268038
+      dronka_animation 1_9: -1799188081
+      dronka_animation 1_14: 1016470646
+      dronka_animation 1_6: -1540134841
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
