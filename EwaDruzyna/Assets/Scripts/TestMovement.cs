@@ -11,7 +11,7 @@ public class TestMovement : MonoBehaviour
     public float jumpForce = 500.0f;
     public float gravityDownGravity = 3000;
     public float gravityNormalForce = 1000.0f;
-    animalType animal = animalType.Ladybird;
+    animalType animal = animalType.Spider;
 
     // Temp variables
     float gravityForce = 1000.0f;
@@ -19,6 +19,7 @@ public class TestMovement : MonoBehaviour
     Vector2 gravity = Vector2.zero;
     bool isGrounded = true;
     private Rigidbody2D rigidBody2D;
+    public Camera camera;
     public enum animalType
     {
         Spider, Ladybird, Crawler
@@ -40,6 +41,8 @@ public class TestMovement : MonoBehaviour
     private void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        Transform cameraTransform = transform.Find("Main Camera");
+        camera = cameraTransform.GetComponent<Camera>();
         rigidBody2D.gravityScale = 0;
     }
 
@@ -60,23 +63,13 @@ public class TestMovement : MonoBehaviour
         {
             Jump();
         }
-
-        /*
-        // Change Gravity when falling
-        if (rigidBody2D.velocity.y < -0.1)ad
-        {
-            rigidBody2D.gravityScale = downGravity;
-        }
-        else
-        {
-            rigidBody2D.gravityScale = 10;
-        }*/
     }
 
     public void CheckIfSpaceIsHeld()
     {
         if (Input.GetKey(KeyCode.Space))
         {
+
             if (wasHoldingSpace)
             {
                 totalSpaceHoldTime += Time.deltaTime;
@@ -235,18 +228,30 @@ public class TestMovement : MonoBehaviour
         if (direction == 0)
         {
             gravity = new Vector2(0, -1);
+            //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w));
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (direction == 1)
         {
             gravity = new Vector2(0, 1);
+            //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 90, transform.rotation.w));
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180);
+            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (direction == 2)
         {
             gravity = new Vector2(1, 0);
+            //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 180, transform.rotation.w));
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
+            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (direction == 3)
         {
             gravity = new Vector2(-1, 0);
+            //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 270, transform.rotation.w));
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 270);
+            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
 
         // Apply gravity
