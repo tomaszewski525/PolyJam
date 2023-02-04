@@ -4,18 +4,42 @@ using UnityEngine;
 
 public class RotatingAimIndicator : MonoBehaviour
 {
-    private GameObject mySprite;
+    private GameObject mySprite, myRoot;
     
     // Start is called before the first frame update
     void Start()
     {
          mySprite = GameObject.Find("aimIndicator");
+         myRoot = GameObject.Find("root");
          
          mySprite.GetComponent<Renderer>().enabled = false; //na start ukrywa indicator
+         myRoot.GetComponent<Renderer>().enabled = false;
+    }
+
+    bool isThereAnEnemyWithinReach() {
+        //to do
+        return false;
+    }
+
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(1);
+        myRoot.GetComponent<Renderer>().enabled = false;
+    }
+
+    void SwitchToEnemy() {
+        //to do
     }
 
     void FireTheRoots() {
          mySprite.GetComponent<Renderer>().enabled = false;
+         myRoot.GetComponent<Renderer>().enabled = true;
+         if(isThereAnEnemyWithinReach()) {
+            SwitchToEnemy();
+         }
+         else {
+            StartCoroutine(waiter()); //TO TWORZY DELAY PRZED ZNIKNIECIEM
+         }
         //to do
     }
 
@@ -26,7 +50,7 @@ public class RotatingAimIndicator : MonoBehaviour
                mySprite.GetComponent<Renderer>().enabled = true; //na ramce wcisniecia myszy sie pojawia indicator
         }
         else if(Input.GetMouseButtonUp(0)){
-            FireTheRoots(); //na ramce zwolnienia myszy robi sie cos jeszcze niezaimplementowanego
+            FireTheRoots();
         }
         else if(Input.GetMouseButton(0)){
             Vector3 mouse = Input.mousePosition;
