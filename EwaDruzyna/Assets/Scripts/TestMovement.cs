@@ -41,8 +41,8 @@ public class TestMovement : MonoBehaviour
     private void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
-        Transform cameraTransform = transform.Find("Main Camera");
-        camera = cameraTransform.GetComponent<Camera>();
+        //Transform cameraTransform = transform.Find("Main Camera");
+        //camera = cameraTransform.GetComponent<Camera>();
         rigidBody2D.gravityScale = 0;
     }
 
@@ -230,28 +230,28 @@ public class TestMovement : MonoBehaviour
             gravity = new Vector2(0, -1);
             //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w));
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
-            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+            //camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (direction == 1)
         {
             gravity = new Vector2(0, 1);
             //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 90, transform.rotation.w));
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180);
-            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+            //camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (direction == 2)
         {
             gravity = new Vector2(1, 0);
             //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 180, transform.rotation.w));
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
-            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+            //camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (direction == 3)
         {
             gravity = new Vector2(-1, 0);
             //transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, transform.rotation.y, 270, transform.rotation.w));
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 270);
-            camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+           // camera.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
 
         // Apply gravity
