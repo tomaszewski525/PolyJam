@@ -53,6 +53,9 @@ public class TestMovement : MonoBehaviour
 
     private void Start()
     {
+        canJump = false;
+        canMove = false;
+
         rigidBody2D = GetComponent<Rigidbody2D>();
         //Transform cameraTransform = transform.Find("Main Camera");
         //camera = cameraTransform.GetComponent<Camera>();
@@ -71,12 +74,16 @@ public class TestMovement : MonoBehaviour
     {
         if (!startAnimTransition)
         {
-            //print(indicator.enemyInBounds.name);
-            if (indicator.enemyInBounds != null)
-            {
-                changeType();
-            }
 
+            // Play LadyBird flying animation
+            if(animal == animalType.Ladybird && !isGrounded && isHoldingSpace && rigidBody2D.velocity.y < -0.1 )
+            {
+               anim.runtimeAnimatorController = jumpAnimator;
+            }
+            if (animal == animalType.Ladybird && (isGrounded|| Mathf.Abs(rigidBody2D.velocity.y) < 0.1))
+            {
+                anim.runtimeAnimatorController = tempAnimator;
+            }
             ChooseGravityDirection(gravityDir);
             ChangeGravityForce();
 
@@ -91,10 +98,17 @@ public class TestMovement : MonoBehaviour
             {
                 Jump();
             }
+            //print(indicator.enemyInBounds.name);
+            if (indicator.enemyInBounds != null)
+            {
+                changeType();
+            }
         }
         else
         {
-            print(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            print("dupa");
+            // Transform anim
+           
             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >1)
             {
                 startAnimTransition = false;
@@ -198,11 +212,13 @@ public class TestMovement : MonoBehaviour
     }
     public Sprite tempSprite;
     public RuntimeAnimatorController tempAnimator;
+    public RuntimeAnimatorController jumpAnimator;
     public void changeType()
     {
         EnemyType typ = indicator.enemyInBounds.GetComponent<EnemyType>();
 
         canJump = typ.canJump;
+        canMove = typ.canMove;
         canWalkOnWall = typ.canWalkOnWall;
         speed = typ.speed;
         jumpForce = typ.jumpForce;
@@ -217,6 +233,7 @@ public class TestMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
 
+
         anim.runtimeAnimatorController = plantTransformAnimation;
         anim.SetTrigger("transform");
         anim.Play(0);
@@ -224,7 +241,7 @@ public class TestMovement : MonoBehaviour
 
         tempSprite = typ.sprite;
         tempAnimator = typ.animator;
-
+        jumpAnimator = typ.jumpAnimator;
 
         coll.size = typ.GetComponent<BoxCollider2D>().size;
         coll.offset = typ.GetComponent<BoxCollider2D>().offset;
