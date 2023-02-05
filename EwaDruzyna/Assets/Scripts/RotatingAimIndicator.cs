@@ -25,7 +25,7 @@ public class RotatingAimIndicator : MonoBehaviour
 
     IEnumerator waiter()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.4F);
         myRoot.GetComponent<Renderer>().enabled = false;
     }
 
@@ -64,6 +64,7 @@ public class RotatingAimIndicator : MonoBehaviour
     void FireTheRoots() {
          mySprite.GetComponent<Renderer>().enabled = false;
          myRoot.GetComponent<Renderer>().enabled = true;
+         myRoot.GetComponent<Animator>().Play("RootAnimation", 0, 0f);
          if(!isThereAnEnemyWithinReach) {
             StartCoroutine(waiter()); //TO TWORZY DELAY PRZED ZNIKNIECIEM
          }
