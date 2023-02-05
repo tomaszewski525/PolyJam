@@ -20,7 +20,7 @@ public class RotatingAimIndicator : MonoBehaviour
     }
 
     bool isThereAnEnemyWithinReach = false;
-    private GameObject enemyInBounds;
+    public GameObject enemyInBounds;
 
 
     IEnumerator waiter()

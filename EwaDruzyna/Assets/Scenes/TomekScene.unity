@@ -624,6 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dea672f118b8808449f3ef392d5190a3, type: 3}
+--- !u!4 &1707827505 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6984177217911670553, guid: dea672f118b8808449f3ef392d5190a3, type: 3}
+  m_PrefabInstance: {fileID: 1199639700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1831040278
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +642,7 @@ GameObject:
   - component: {fileID: 1831040280}
   - component: {fileID: 1831040279}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: EnemyLadybug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +814,7 @@ PrefabInstance:
     - target: {fileID: 7673317229907060101, guid: 09b192ac0bb5ac341b11268949fa6d82, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1707827505}
     - target: {fileID: 7673317229907060101, guid: 09b192ac0bb5ac341b11268949fa6d82, type: 3}
       propertyPath: damping
       value: 0.5

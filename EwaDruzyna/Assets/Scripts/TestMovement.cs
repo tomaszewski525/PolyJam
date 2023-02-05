@@ -19,6 +19,7 @@ public class TestMovement : MonoBehaviour
     Vector2 gravity = Vector2.zero;
     bool isGrounded = true;
     private Rigidbody2D rigidBody2D;
+    public RotatingAimIndicator indicator;
     public Camera camera;
     public enum animalType
     {
