@@ -66,6 +66,7 @@ public class TestMovement : MonoBehaviour
         coll = indicator.myPlantSprite.GetComponentInChildren<BoxCollider2D>();
     }
 
+    bool doOnce = false;
     private void Update()
     {
         if (!startAnimTransition)
@@ -93,6 +94,13 @@ public class TestMovement : MonoBehaviour
         }
         else
         {
+            print(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >1)
+            {
+                startAnimTransition = false;
+                renderer.sprite = tempSprite;
+                anim.runtimeAnimatorController = tempAnimator;
+            }
 
         }
     }
@@ -188,6 +196,8 @@ public class TestMovement : MonoBehaviour
         }
 
     }
+    public Sprite tempSprite;
+    public RuntimeAnimatorController tempAnimator;
     public void changeType()
     {
         EnemyType typ = indicator.enemyInBounds.GetComponent<EnemyType>();
@@ -208,8 +218,12 @@ public class TestMovement : MonoBehaviour
         }
 
         anim.runtimeAnimatorController = plantTransformAnimation;
-        //anim.Play();
-        renderer.sprite = typ.sprite;
+        anim.SetTrigger("transform");
+        anim.Play(0);
+
+
+        tempSprite = typ.sprite;
+        tempAnimator = typ.animator;
 
 
         coll.size = typ.GetComponent<BoxCollider2D>().size;
@@ -221,7 +235,7 @@ public class TestMovement : MonoBehaviour
         rigidBody2D.velocity = new Vector2(0, 0);
         typ.GetComponent<BoxCollider2D>().size = new Vector2(0, 0);
         typ.GetComponent<Rigidbody2D>().gravityScale = 0;
-        typ.GetComponent<SpriteRenderer>().sortingLayerID = 0;
+        typ.GetComponent<SpriteRenderer>().enabled = false;
         
         startAnimTransition = true;
 
