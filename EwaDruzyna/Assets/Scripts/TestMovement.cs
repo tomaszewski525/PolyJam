@@ -13,6 +13,7 @@ public class TestMovement : MonoBehaviour
     public float gravityDownGravity = 3000;
     public float gravityNormalForce = 1000.0f;
     animalType animal = animalType.Spider;
+    public RuntimeAnimatorController plantTransformAnimation;
 
     // Temp variables
     float gravityForce = 1000.0f;
@@ -20,8 +21,13 @@ public class TestMovement : MonoBehaviour
     Vector2 gravity = Vector2.zero;
     bool isGrounded = true;
     private Rigidbody2D rigidBody2D;
+    
     public RotatingAimIndicator indicator;
     public Camera camera;
+
+    private Animator anim;
+    private SpriteRenderer renderer;
+    private BoxCollider2D coll;
 
     public enum animalType
     {
@@ -40,7 +46,7 @@ public class TestMovement : MonoBehaviour
 
 
     // cooldowns
-    
+    bool startAnimTransition;
 
 
 
@@ -51,9 +57,13 @@ public class TestMovement : MonoBehaviour
         //Transform cameraTransform = transform.Find("Main Camera");
         //camera = cameraTransform.GetComponent<Camera>();
         rigidBody2D.gravityScale = 0;
-
+        anim = GetComponent<Animator>();
         //GameObject.Find("aimIndicator").GetComponent<RotatingAimIndicator>();
         indicator = GameObject.Find("AimIndicatorBox").GetComponentInChildren<RotatingAimIndicator>();
+
+        anim = indicator.myPlantSprite.GetComponentInChildren<Animator>();
+        renderer = indicator.myPlantSprite.GetComponentInChildren<SpriteRenderer>();
+        coll = indicator.myPlantSprite.GetComponentInChildren<BoxCollider2D>();
     }
 
     private void Update()
@@ -63,7 +73,6 @@ public class TestMovement : MonoBehaviour
         {
             changeType();
         }
-        print(indicator.enemyInBounds);
 
         ChooseGravityDirection(gravityDir);
         ChangeGravityForce();
@@ -118,11 +127,47 @@ public class TestMovement : MonoBehaviour
         {
             float horizontalInput = Input.GetAxis("Horizontal");
             rigidBody2D.velocity = new Vector2(horizontalInput * speed, rigidBody2D.velocity.y);
+
+            // Change sprite side
+            if (horizontalInput> 0 && gravityDir == 0) 
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
+            }
+            if (horizontalInput < 0 && gravityDir == 0)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z);
+            }
+            if (horizontalInput > 0 && gravityDir == 1)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 180, -180);
+            }
+            if (horizontalInput < 0 && gravityDir == 1)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 0, -180);
+            }
         }
         else
         {
             float verticalInput = Input.GetAxis("Vertical");
             rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, verticalInput * speed);
+
+            // Change sprite side
+            if (verticalInput > 0 && gravityDir == 3)
+            {
+                transform.rotation = Quaternion.Euler(180, 0, -90);
+            }
+            if (verticalInput < 0 && gravityDir == 3)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, -90);
+            }
+            if (verticalInput > 0 && gravityDir == 2)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
+            if (verticalInput < 0 && gravityDir == 2)
+            {
+                transform.rotation = Quaternion.Euler(180, 0, 90);
+            }
         }
 
     }
@@ -141,12 +186,32 @@ public class TestMovement : MonoBehaviour
         EnemyType typ = indicator.enemyInBounds.GetComponent<EnemyType>();
 
         canJump = typ.canJump;
+        canWalkOnWall = typ.canWalkOnWall;
         speed = typ.speed;
         jumpForce = typ.jumpForce;
         gravityDownGravity = typ.gravityDownForce;
         gravityNormalForce = typ.gravityForce;
         animal = typ.type;
+
+        if(animal == animalType.Ladybird)
+        {
+            gravity = new Vector2(0, -1);
+            gravityDir = 0;
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+        }
+
+        anim.runtimeAnimatorController = typ.animator;
+        renderer.sprite = typ.sprite;
+
+
+        coll.size = typ.GetComponent<BoxCollider2D>().size;
+        coll.offset = typ.GetComponent<BoxCollider2D>().offset;
+
+
+
+
     }
+
 
     public void ChangeGravityForce()
     {

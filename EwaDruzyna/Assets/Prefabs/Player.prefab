@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1076306719, guid: ff3c3337a88ab0344929f4be7d294556, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   jumpForce: 500
   gravityDownGravity: 3000
   gravityNormalForce: 1000
+  plantTransformAnimation: {fileID: 9100000, guid: 05769440e97919c4aa2fda1e3fdfd561, type: 2}
   indicator: {fileID: 3096018767903115202}
   camera: {fileID: 0}
 --- !u!1 &6984177219146899895
@@ -217,6 +218,7 @@ GameObject:
   - component: {fileID: 6984177219146899894}
   - component: {fileID: 6984177219146899881}
   - component: {fileID: 6984177219146899880}
+  - component: {fileID: 2618675028215231027}
   m_Layer: 0
   m_Name: PlantSprite
   m_TagString: Untagged
@@ -279,7 +281,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1678233315, guid: ba79a1bfec38818418e38daf8b5e36e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -317,6 +319,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24136108, y: 0.32715958}
   m_EdgeRadius: 0
+--- !u!95 &2618675028215231027
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984177219146899895}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 323650852953c064f8c79069b4539e64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7475490723215900903
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +412,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 29eaf6d79144f304f9272a18c0b455e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -447,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52566ccbd3fd48349b6222a8fac80055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myPlantSprite: {fileID: 0}
   enemyInBounds: {fileID: 0}
   radius: 7
   ignoreMask:

@@ -12,6 +12,13 @@ public class EnemyType : MonoBehaviour
     public bool canJump = true;
     public bool canWalkOnWall = true;
     public Sprite sprite;
-    public Animator animator;
+    public RuntimeAnimatorController animator;
     public TestMovement.specialAbilityType ability = TestMovement.specialAbilityType.ShootLine;
+
+    private SpriteRenderer spriteRenderer;
+    private void Start()
+    {
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer.sprite = sprite;
+    }
 }

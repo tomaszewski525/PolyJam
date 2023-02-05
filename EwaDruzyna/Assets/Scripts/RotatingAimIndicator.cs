@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RotatingAimIndicator : MonoBehaviour
 {
-    private GameObject mySprite, myRoot, myPlantSprite;
-
+    private GameObject mySprite, myRoot;
+    public GameObject myPlantSprite;
     // Start is called before the first frame update
     void Start()
     {

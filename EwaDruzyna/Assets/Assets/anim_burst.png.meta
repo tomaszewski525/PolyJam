@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,11 +117,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: anim_burst_0
+      name: anim_burst_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 64
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -159,11 +159,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anim_burst_2
+      name: anim_burst_8
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -175,48 +175,6 @@ TextureImporter:
       bones: []
       spriteID: 5779d1e6239ff9e4ba6d49e810e19898
       internalID: 724974045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: anim_burst_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c96f1fc70fedd7c45adf6135778e84c0
-      internalID: -1383341886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: anim_burst_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3360baeacfc128b40acd0feabb6a7a32
-      internalID: 1769440440
       vertices: []
       indices: 
       edges: []
@@ -236,29 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 714310819637794459f3067cc5ee5344
-      internalID: -198478881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: anim_burst_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2be3beec3fcc5a5489195f2cf4460e33
-      internalID: 1816356438
+      spriteID: c96f1fc70fedd7c45adf6135778e84c0
+      internalID: -1383341886
       vertices: []
       indices: 
       edges: []
@@ -278,6 +215,69 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+      spriteID: 3360baeacfc128b40acd0feabb6a7a32
+      internalID: 1769440440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim_burst_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714310819637794459f3067cc5ee5344
+      internalID: -198478881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim_burst_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be3beec3fcc5a5489195f2cf4460e33
+      internalID: 1816356438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim_burst_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
       spriteID: 415dcf442d6855449a5c96cb35714612
       internalID: -892648488
       vertices: []
@@ -285,11 +285,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anim_burst_8
+      name: anim_burst_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -316,15 +316,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      anim_burst_4: 1769440440
+      anim_burst_4: 1479781060
       anim_burst_1: 1673630958
-      anim_burst_8: -273337298
-      anim_burst_5: -198478881
-      anim_burst_7: -892648488
-      anim_burst_3: -1383341886
-      anim_burst_0: 1479781060
-      anim_burst_6: 1816356438
-      anim_burst_2: 724974045
+      anim_burst_8: 724974045
+      anim_burst_5: -1383341886
+      anim_burst_7: 1769440440
+      anim_burst_3: -198478881
+      anim_burst_0: 1816356438
+      anim_burst_6: -892648488
+      anim_burst_2: -273337298
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
