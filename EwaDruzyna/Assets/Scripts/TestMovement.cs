@@ -45,10 +45,19 @@ public class TestMovement : MonoBehaviour
         //Transform cameraTransform = transform.Find("Main Camera");
         //camera = cameraTransform.GetComponent<Camera>();
         rigidBody2D.gravityScale = 0;
+
+        //GameObject.Find("aimIndicator").GetComponent<RotatingAimIndicator>();
+        indicator = GameObject.Find("AimIndicatorBox").GetComponentInChildren<RotatingAimIndicator>();
     }
 
     private void Update()
     {
+        //print(indicator.enemyInBounds.name);
+        if(indicator.enemyInBounds != null)
+        {
+           print(indicator.enemyInBounds);
+        }
+        //print(indicator.enemyInBounds);
 
         ChooseGravityDirection(gravityDir);
         ChangeGravityForce();
