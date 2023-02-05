@@ -7,6 +7,7 @@ public class TestMovement : MonoBehaviour
     // Animal Data
     bool canJump = true;
     bool canMove = true;
+    bool canWalkOnWall = true;
     public float speed = 10.0f;
     public float jumpForce = 500.0f;
     public float gravityDownGravity = 3000;
@@ -21,6 +22,7 @@ public class TestMovement : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     public RotatingAimIndicator indicator;
     public Camera camera;
+
     public enum animalType
     {
         Spider, Ladybird, Crawler
@@ -35,9 +37,13 @@ public class TestMovement : MonoBehaviour
     bool wasHoldingSpace = false;
     float spaceHoldTime = 0.003f;
     float totalSpaceHoldTime = 0.0f;
+
+
+    // cooldowns
     
 
-    
+
+
 
     private void Start()
     {
@@ -53,9 +59,9 @@ public class TestMovement : MonoBehaviour
     private void Update()
     {
         //print(indicator.enemyInBounds.name);
-        if(indicator.enemyInBounds != null)
+        if (indicator.enemyInBounds != null)
         {
-          print(indicator.enemyInBounds);
+            changeType();
         }
         print(indicator.enemyInBounds);
 
@@ -69,7 +75,7 @@ public class TestMovement : MonoBehaviour
             Move();
         }
 
-        if(canJump)
+        if (canJump)
         {
             Jump();
         }
@@ -130,11 +136,23 @@ public class TestMovement : MonoBehaviour
         }
 
     }
+    public void changeType()
+    {
+        EnemyType typ = indicator.enemyInBounds.GetComponent<EnemyType>();
+
+        canJump = typ.canJump;
+        speed = typ.speed;
+        jumpForce = typ.jumpForce;
+        gravityDownGravity = typ.gravityDownForce;
+        gravityNormalForce = typ.gravityForce;
+        animal = typ.type;
+    }
 
     public void ChangeGravityForce()
     {
         float tempDownGravity = 0;
 
+        // Lady bird floating
         if(isHoldingSpace && animal == animalType.Ladybird)
         {
             tempDownGravity = gravityNormalForce / 4;
@@ -143,6 +161,7 @@ public class TestMovement : MonoBehaviour
         {
             tempDownGravity = gravityDownGravity;
         }
+
 
         if (gravityDir == 0)
         {
@@ -203,7 +222,7 @@ public class TestMovement : MonoBehaviour
             rigidBody2D.velocity = stopVelocity;
         }
 
-        if (animal == animalType.Spider)
+        if (canWalkOnWall)
         {
             gravityDir = gravityDirection;
             isGrounded = true;

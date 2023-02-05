@@ -10,5 +10,8 @@ public class EnemyType : MonoBehaviour
     public float gravityDownForce = 2000;
     public float gravityForce = 1000;
     public bool canJump = true;
+    public bool canWalkOnWall = true;
+    public Sprite sprite;
+    public Animator animator;
     public TestMovement.specialAbilityType ability = TestMovement.specialAbilityType.ShootLine;
 }
