@@ -135,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1618246484669592992, guid: dea672f118b8808449f3ef392d5190a3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cdc282a0e0698a9448a58e45f1fa580b, type: 2}
     - target: {fileID: 6984177217911670553, guid: dea672f118b8808449f3ef392d5190a3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -199,6 +203,7 @@ GameObject:
   - component: {fileID: 1831040279}
   - component: {fileID: 1831040283}
   - component: {fileID: 1831040284}
+  - component: {fileID: 1831040285}
   m_Layer: 3
   m_Name: EnemyLadybug
   m_TagString: Untagged
@@ -224,6 +229,7 @@ MonoBehaviour:
   gravityDownForce: 2000
   gravityForce: 1000
   canJump: 1
+  canMove: 1
   canWalkOnWall: 0
   sprite: {fileID: -1397725936, guid: 70d64b23af0653f428f22a3fbe8c61f4, type: 3}
   animator: {fileID: 9100000, guid: eebb19ca670c1104c84fad1dc9cc1193, type: 2}
@@ -362,6 +368,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1831040285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831040278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2155d5337d4b8d47a6678ca7487fc7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  speed: 1
+  distance: 0.5
+  waitTime: 0
 --- !u!1 &1998618097
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +398,7 @@ GameObject:
   - component: {fileID: 1998618098}
   - component: {fileID: 1998618102}
   - component: {fileID: 1998618103}
+  - component: {fileID: 1998618104}
   m_Layer: 3
   m_Name: EnemyCrawler
   m_TagString: Untagged
@@ -401,6 +424,7 @@ MonoBehaviour:
   gravityDownForce: 2000
   gravityForce: 1000
   canJump: 0
+  canMove: 1
   canWalkOnWall: 1
   sprite: {fileID: 306261001, guid: 6f98d318c6a9b3442806fea025d4bbf4, type: 3}
   animator: {fileID: 9100000, guid: be8660bdc1bcb0c4abe1cf890eee6633, type: 2}
@@ -539,6 +563,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1998618104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998618097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2155d5337d4b8d47a6678ca7487fc7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  speed: 0.7
+  distance: 0.4
+  waitTime: 1
 --- !u!1001 &3143254583551027445
 PrefabInstance:
   m_ObjectHideFlags: 0
