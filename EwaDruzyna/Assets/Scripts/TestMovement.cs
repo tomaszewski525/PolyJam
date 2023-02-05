@@ -68,25 +68,32 @@ public class TestMovement : MonoBehaviour
 
     private void Update()
     {
-        //print(indicator.enemyInBounds.name);
-        if (indicator.enemyInBounds != null)
+        if (!startAnimTransition)
         {
-            changeType();
+            //print(indicator.enemyInBounds.name);
+            if (indicator.enemyInBounds != null)
+            {
+                changeType();
+            }
+
+            ChooseGravityDirection(gravityDir);
+            ChangeGravityForce();
+
+            CheckIfSpaceIsHeld();
+
+            if (canMove)
+            {
+                Move();
+            }
+
+            if (canJump)
+            {
+                Jump();
+            }
         }
-
-        ChooseGravityDirection(gravityDir);
-        ChangeGravityForce();
-
-        CheckIfSpaceIsHeld();
-
-        if (canMove)
+        else
         {
-            Move();
-        }
 
-        if (canJump)
-        {
-            Jump();
         }
     }
 
@@ -200,15 +207,23 @@ public class TestMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
 
-        anim.runtimeAnimatorController = typ.animator;
+        anim.runtimeAnimatorController = plantTransformAnimation;
+        //anim.Play();
         renderer.sprite = typ.sprite;
 
 
         coll.size = typ.GetComponent<BoxCollider2D>().size;
         coll.offset = typ.GetComponent<BoxCollider2D>().offset;
 
-
-
+        // change position
+        transform.position = typ.transform.position;
+        // set velocity
+        rigidBody2D.velocity = new Vector2(0, 0);
+        typ.GetComponent<BoxCollider2D>().size = new Vector2(0, 0);
+        typ.GetComponent<Rigidbody2D>().gravityScale = 0;
+        typ.GetComponent<SpriteRenderer>().sortingLayerID = 0;
+        
+        startAnimTransition = true;
 
     }
 
