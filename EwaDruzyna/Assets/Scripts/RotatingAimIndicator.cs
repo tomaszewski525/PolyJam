@@ -106,6 +106,8 @@ public class RotatingAimIndicator : MonoBehaviour
             Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
             //print(direction);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, radius, ignoreMask);
+            Debug.DrawLine(new Vector3(transform.position.x, transform.position.y, 10), new Vector3(transform.position.x, transform.position.y, 10) + new Vector3((direction * radius).x, (direction * radius).y, -10), Color.red, 2.0f);
+
             if (hit.collider != null && hit.collider.gameObject != myRoot)
             {
                 enemyInBounds = hit.collider.gameObject;

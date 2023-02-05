@@ -122,7 +122,7 @@ Animator:
   m_GameObject: {fileID: 4390275076418606305}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55c2b76acc82b65488738fdf698b4ea5, type: 2}
+  m_Controller: {fileID: 9100000, guid: cdc282a0e0698a9448a58e45f1fa580b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyInBounds: {fileID: 0}
-  radius: 2
+  radius: 7
   ignoreMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8

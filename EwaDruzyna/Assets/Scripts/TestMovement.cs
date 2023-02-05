@@ -55,9 +55,9 @@ public class TestMovement : MonoBehaviour
         //print(indicator.enemyInBounds.name);
         if(indicator.enemyInBounds != null)
         {
-           print(indicator.enemyInBounds);
+          print(indicator.enemyInBounds);
         }
-        //print(indicator.enemyInBounds);
+        print(indicator.enemyInBounds);
 
         ChooseGravityDirection(gravityDir);
         ChangeGravityForce();
@@ -126,7 +126,6 @@ public class TestMovement : MonoBehaviour
         // Can jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && canJump)
         {
-            print(jumpForce * gravity);
             rigidBody2D.AddForce(jumpForce * gravity * (-1));
         }
 
